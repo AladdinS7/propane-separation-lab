@@ -1,0 +1,11 @@
+{
+  "flow": 100,
+  "propane": 50,
+  "butane": 30,
+  "water": 20,
+  "temperature": 25,
+  "pressure": 6,
+  "c3Recovery": 95,
+  "c4Carryover": 5,
+  "stages": 8
+}
