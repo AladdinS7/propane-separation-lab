@@ -1,6 +1,6 @@
 {
   "name": "propane-separation-lab",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "description": "An interactive teaching lab for propane recovery through a three-outlet flash separator and a depropanizer.",
