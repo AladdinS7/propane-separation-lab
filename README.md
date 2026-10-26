@@ -64,9 +64,9 @@ Use **Export case** to save JSON for a later session. **Download CSV** beside th
 
 Case files must be smaller than 100 KB. The optional `stages` field defaults to 8 when omitted; the other input fields are required. See [`docs/DATA.md`](docs/DATA.md) for the complete data format.
 
-`flow` is total feed in mol/h. `propane`, `butane`, and `water` are feed molar percentages. `temperature` is in degrees Celsius and `pressure` is absolute pressure in bar. `c3Recovery` is the percentage of propane entering the tower that is assigned to its overhead; `c4Carryover` is the percentage of tower-feed n-butane assigned to the same stream. `stages` is a retained case value for the model's illustrative stage profile. These tower split settings are scenario inputs, not guaranteed outcomes from a rigorous column design.
+`flow` is total feed in mol/h. `propane`, `butane`, and `water` are feed molar percentages. `temperature` is in degrees Celsius and `pressure` is absolute pressure in bar. `c3Recovery` is the percentage of propane entering the tower that is assigned to its overhead; `c4Carryover` is the percentage of tower-feed n-butane assigned to the same stream. `stages` is the editable ideal equilibrium-stage count for a separate Fenske total-reflux limit study. These tower split settings are scenario inputs, not guaranteed outcomes from a rigorous column design.
 
-The teaching range is 5–85 °C, 0.5–30 bar absolute, and 1–40 illustrative stages. Stage count does not change the assumed component recoveries. Tray symbols in the process drawing are schematic.
+The teaching range is 5–85 °C, 0.5–30 bar absolute, and 1–40 ideal equilibrium stages for the separate stage study. Stage count does not change the assumed component recoveries. Tray symbols in the process drawing are schematic.
 
 Only structured case values are supported. A PDF, drawing, photograph, or prose document is not a simulation case. No file is uploaded to a remote calculation service by this static app.
 
@@ -125,3 +125,15 @@ Qualitative operating feedback is not a probability of machinery failure. Failur
 - Thermodynamic data and any equations used by this implementation are documented with the model and in the website's teaching content.
 
 The new site changes the process from the reference's propane/water flash-and-stripper sequence to a propane/n-butane/water separator and depropanizer teaching sequence. Attribution is not an endorsement by the original author. No license grant is inferred from the reference repository.
+
+## Student studio (v3)
+
+- Eight beginner lessons with worked examples, knowledge checks, and locally saved progress.
+- Searchable glossary and a downloadable student reference.
+- Pre-run review: keep your own valid values, edit them, or load a suggested comparison as a draft.
+- Context-sensitive input coaching and a rule-based study assistant explaining rejected values. No live AI service or API key is used.
+- Eight actual-source code walkthroughs with copy/open/download controls.
+- Editable equilibrium stages and a separate Fenske total-reflux composition-limit study. The stream ledger continues to use the specified component splits.
+- Independent first-failure probability explorer with explicitly hypothetical MTTFs, editable mission time, and component selection.
+
+See [Student guide](docs/STUDENT_GUIDE.md) for usage and scientific boundaries. Run `npm test` for the process, data, teaching, reliability, and stage-study checks. GitHub Actions runs these before deployment.

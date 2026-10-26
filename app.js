@@ -1,4 +1,5 @@
 import { DEFAULT_INPUTS, simulate, validateInputs, generateSensitivity } from './model.js';
+import { initStudentTools } from './student.js';
 import { renderDiagram } from './diagram.js';
 import { parseCase, encodeCase, streamsCsv, annualizedCost } from './data.js';
 
@@ -24,6 +25,7 @@ let motionPaused = false;
 let sweepVariable = 'pressure';
 let toastTimer;
 let dirty = false;
+let student;
 
 function toast(message) {
   $('toast').textContent = message;
@@ -54,11 +56,12 @@ function updateDraft() {
   } else if (dirty) {
     const draft = simulate(inputs);
     const note = draft.warnings[0];
-    $('case-feedback').textContent = note ? `${note} Run to apply these conditions.` : 'Inputs look good. Run separation to update all results.';
+    $('case-feedback').textContent = note ? `${note} Review & run to apply these conditions.` : 'Inputs are valid. Review & run for feedback before applying them.';
   } else {
     $('case-feedback').textContent = 'Case calculated. All displayed results use these conditions.';
   }
   $('case-form').querySelector('[type=submit]').disabled = !validation.valid;
+  student?.draftChanged(inputs);
   return validation;
 }
 
@@ -73,6 +76,7 @@ function applyCase(inputs, name = 'Custom case', announce = true) {
   updateDraft();
   renderResults();
   renderAnalysis();
+  student?.refresh();
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ inputs, name })); } catch { /* Storage can be unavailable in private browsing. */ }
   if (announce) toast(`${name} calculated. Material balance ${next.balances.closed ? 'closed' : 'needs review'}.`);
 }
@@ -158,7 +162,7 @@ function renderEconomics() {
 }
 
 function showView(view, updateHash = true) {
-  if (!['simulation', 'analysis', 'economics', 'learn'].includes(view)) view = 'simulation';
+  if (!['simulation', 'analysis', 'economics', 'learn', 'code', 'reliability', 'help'].includes(view)) view = 'simulation';
   document.querySelectorAll('.view').forEach(panel => { panel.hidden = panel.id !== `view-${view}`; });
   document.querySelectorAll('[data-view]').forEach(button => {
     const active = button.dataset.view === view;
@@ -177,12 +181,12 @@ function download(content, filename, type) {
 }
 
 $('case-form').addEventListener('input', () => { $('preset').value = 'custom'; updateDraft(); });
-$('case-form').addEventListener('submit', event => { event.preventDefault(); if (updateDraft().valid) applyCase(readInputs(), $('preset').value === 'custom' ? 'Custom case' : PRESETS[$('preset').value].label); });
+$('case-form').addEventListener('submit', event => { event.preventDefault(); if (updateDraft().valid) student.openReview(readInputs(), $('preset').value === 'custom' ? 'Custom case' : PRESETS[$('preset').value].label); });
 $('preset').addEventListener('change', event => {
   const preset = PRESETS[event.target.value];
   if (!preset) return;
   populateInputs(preset.inputs); updateDraft();
-  $('case-feedback').textContent = `Loaded ${preset.label.toLowerCase()}. Review the conditions, then run separation.`;
+  $('case-feedback').textContent = `Loaded ${preset.label.toLowerCase()}. Review the conditions, then review & run.`;
 });
 $('reset-button').addEventListener('click', () => applyCase(DEFAULT_INPUTS, 'Balanced separation'));
 $('motion-button').addEventListener('click', () => {
@@ -204,9 +208,9 @@ document.addEventListener('click', event => {
   const navigation = event.target.closest('[data-view], [data-go]');
   if (navigation) { showView(navigation.dataset.view || navigation.dataset.go); window.scrollTo({ top: 0, behavior: 'instant' }); }
   const comparison = event.target.closest('[data-apply-pressure]');
-  if (comparison) { applyCase({ ...current.inputs, pressure: Number(comparison.dataset.applyPressure) }, `Pressure comparison · ${comparison.dataset.applyPressure} bar`); showView('simulation'); window.scrollTo({ top: 0, behavior: 'instant' }); }
+  if (comparison) { const inputs = { ...current.inputs, pressure: Number(comparison.dataset.applyPressure) }; loadDraft(inputs); student.openReview(inputs, `Pressure comparison · ${comparison.dataset.applyPressure} bar`); }
 });
-window.addEventListener('hashchange', () => showView(location.hash.slice(1), false));
+window.addEventListener('hashchange', () => { if (location.hash !== '#main') showView(location.hash.slice(1), false); });
 document.querySelectorAll('[data-sweep]').forEach(button => button.addEventListener('click', () => {
   sweepVariable = button.dataset.sweep;
   document.querySelectorAll('[data-sweep]').forEach(other => { const active = other === button; other.classList.toggle('active', active); other.setAttribute('aria-pressed', String(active)); });
@@ -226,7 +230,7 @@ $('import-file').addEventListener('change', async event => {
     const inputs = parseCase(await file.text(), file.name);
     populateInputs(inputs); $('preset').value = 'custom';
     updateDraft(); showView('simulation');
-    $('case-feedback').textContent = 'Case imported. Review the values, then run separation to update results.';
+    $('case-feedback').textContent = 'Case imported. Review the values, then review & run to update results.';
     toast('Case values imported locally. Review and run separation.');
     $('flow').focus();
   } catch (error) { toast(`Import failed: ${error.message}`); }
@@ -236,6 +240,11 @@ $('economics-form').addEventListener('submit', event => { event.preventDefault()
 $('economics-form').addEventListener('input', () => { $('economics-error').textContent = 'Assumptions changed. Recalculate to update the annual cost.'; });
 $('reset-economics').addEventListener('click', () => { Object.entries(COST_DEFAULTS).forEach(([key, value]) => { $('economics-form').elements[key].value = value; }); renderEconomics(); });
 
+function loadDraft(inputs) {
+  populateInputs(inputs); $('preset').value = 'custom'; updateDraft(); showView('simulation');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 let restored = false;
 try {
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
@@ -244,3 +253,5 @@ try {
 if (!restored) applyCase(DEFAULT_INPUTS, 'Balanced separation', false);
 renderEconomics();
 showView(location.hash.slice(1) || 'simulation', false);
+
+student = initStudentTools({ getCurrent: () => current, getDraft: readInputs, applyCase, loadDraft, showView, toast });

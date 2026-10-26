@@ -16,7 +16,7 @@ SLB describes three-phase separators as separating gas, hydrocarbon liquid, and 
 | `pressure` | Flash absolute pressure | 0.5–30 bar abs |
 | `c3Recovery` | Assumed fraction of condensate propane sent to tower overhead | 0–100% |
 | `c4Carryover` | Assumed fraction of condensate n-butane sent to tower overhead | 0–100% |
-| `stages` | Number of points in an explanatory tower composition trend | Whole number 1–40 |
+| `stages` | Chosen ideal-stage count for a separate Fenske total-reflux study | Whole number 1–40 |
 
 These bounds define the teaching interface. They are **not equipment operating limits**. No vessel design pressure, material limits, hydraulic capacity, or equipment rating is inferred. Temperatures stay within both selected vapor-pressure correlation ranges. Valid inputs must be numbers; strings, infinity, missing fields, invalid compositions, and fractional stage counts are rejected. Only a composition-sum tolerance of one millionth of a percentage point is normalized.
 
@@ -64,7 +64,7 @@ Bbutane  = Lbutane  − Dbutane
 
 The depropanizer concept is grounded in Honeywell UOP's fractionation process: a C3+ feed yields propane overhead and heavier bottoms, with overhead condensation/reflux and a reboiler. Source: [Honeywell UOP fractionation process](https://uop.honeywell.com/content/dam/uop/en-us/documents/equipment-aftermarket/modular/modular-gas-processing/modular-ngl/honeywell-uop-fractionation-datasheet.pdf).
 
-This implementation does **not** solve tray equilibria, reflux, boilup, feed quality, condenser performance, or a rigorous distillation column. Recovery and carryover are assumptions, not predictions of achievable performance. Changing stage count only changes the number of points in a clearly identified illustrative trend; it never changes the calculated component recoveries. That trend is a linear interpolation between the specified product compositions, not an equilibrium-stage profile. If either tower product has zero flow, its composition is unavailable and no physical trend should be inferred.
+This implementation does **not** solve tray equilibria, reflux, boilup, feed quality, condenser performance, or a rigorous distillation column. Recovery and carryover are assumptions, not predictions of achievable performance. Changing stage count updates the separate Fenske study described below; it never changes the specified component recoveries in the flowing material balance. The legacy `towerProfile` output remains an unused illustrative trend for compatibility. That trend is a linear interpolation between the specified product compositions, not an equilibrium-stage profile. If either tower product has zero flow, its composition is unavailable and no physical trend should be inferred.
 
 ## Metrics and balances
 
@@ -93,3 +93,23 @@ Operating feedback is qualitative. Machinery-failure probabilities require equip
 ## Verification
 
 Run `node --test tests/*.test.mjs`. Tests check reference vapor pressures, hydrocarbon equilibrium relations, all final component balances, pure-component and zero-flow endpoints, phase transitions, user-specified tower splits, stage-count independence, validation, pressure sensitivity, 500 deterministic input samples, case imports/exports, and annualized-cost arithmetic. Tests validate the implementation of the stated approximation; they do not validate the approximation against real plant performance.
+
+## Separate ideal equilibrium-stage study
+
+`teaching.js:calculateStageStudy` evaluates the Fenske total-reflux limit. The chosen stage count is editable from 1 to 40. Hold the split-case bottoms propane fraction xB fixed and approximate constant alpha = Kpropane/Kbutane at flash temperature. Then:
+
+```text
+logit(x) = ln(x) - ln(1-x)
+Nmin = [logit(xD) - logit(xB)] / ln(alpha)
+x(N) = 1 / [1 + exp(-logit(xB) - N*ln(alpha))]
+```
+
+The target xD comes from the specified tower splits. Count an equilibrium reboiler, exclude a total condenser, and round a fractional minimum upward when choosing an integer count. Two flowing mixed products and propane enrichment are required; undefined endpoint cases display an explanation.
+
+Total reflux means no feed or product withdrawal. Therefore this is a limiting composition study, separate from the flowing stream ledger. It does not predict finite-reflux performance, tray efficiency, duty, or actual column operation. Constant relative volatility evaluated at the flash temperature is a teaching approximation, not a validated average for an actual tower. See [ETH Zürich](https://www.hyper-tvt.ethz.ch/distillation-multicomponent-fenske.html).
+
+## Reliability and input advice
+
+The independent teaching reliability calculator uses constant first-failure hazards and explicitly hypothetical MTTFs. It does not use the flash conditions as predictors of failure rates. Probability is computed with `-Math.expm1(-t * rate)` for precision at small probabilities. Only selected components are included. See [STUDENT_GUIDE.md](STUDENT_GUIDE.md) for equations, sources, and exclusions.
+
+The input assistant provides deterministic explanations from the same validation rules used by the simulator. Suggested pressure comparisons use the midpoint between ideal dew and bubble pressures within the accepted range, and are checked to yield two hydrocarbon phases before being offered. No suggestion is an equipment recommendation or an optimum.

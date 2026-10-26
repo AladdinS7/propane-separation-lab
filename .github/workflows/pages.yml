@@ -47,8 +47,8 @@ jobs:
       - name: Assemble website files
         run: |
           mkdir -p _site/docs
-          cp index.html styles.css app.js model.js data.js diagram.js favicon.svg example-case.json _site/
-          cp docs/MODEL.md docs/DATA.md _site/docs/
+          cp index.html styles.css app.js model.js data.js diagram.js teaching.js lessons.js student.js favicon.svg example-case.json _site/
+          cp docs/*.md _site/docs/
           touch _site/.nojekyll
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
