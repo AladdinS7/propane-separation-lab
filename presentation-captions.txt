@@ -1,0 +1,161 @@
+Propane separation lab transcript — slimmed captions
+Source: captions__1.srt (469 caption blocks, 0:01-21:00)
+Numbers removed; overlapping caption blocks merged into sentence chunks.
+Each timestamp is the start of the first caption in the chunk to the end of the last caption in the chunk. Wording unchanged.
+
+[0:01-0:06] Hello everyone.
+[0:01-0:09] This is our propane labs, our propane separation lab.
+[0:03-0:13] And so we, my name is Kyle.
+[0:06-0:17] This is Faio and Aladdin.
+[0:09-0:32] And we created a uh an AI website uh both through chat GPT Astra uh 6.0 Max and then Muse as well to help create a um interactive website for users to use to be able to work with separations.
+[0:26-0:32] So thank you very much.
+[0:28-0:32] Let's go to sec next slide.
+[0:33-0:54] So our general uh analysis of this of what we're doing here is we have a flash vessel which we have our bottom our bottom flow out and our top flow out and then our condensate which go then our condensate flow goes to our distillation column.
+[0:48-1:00] And then another uh question we want to answer is what happens when we change the pressure.
+[0:54-1:05] So that's uh very key for rash for price rice and for uh our other calculations that we use to run this.
+[1:03-1:12] And then the last thing that we want to do and ultimately what this main project is about is can I trust a number?
+[1:07-1:14] This is completely generated through AI.
+[1:09-1:24] So we want to see if we can really trust AI to do um engineering related questions specifically to separations.
+[1:20-1:26] All right guys, I'm so right here.
+[1:20-1:35] So [snorts] we have the the feed, we have the flush vessel, the condensate and the distillation power.
+[1:31-1:44] So here uh our main uh in the feed the main products there's uh propane, butane and water.
+[1:38-1:47] We all know that propane is more volatile.
+[1:41-1:53] So it uh tends to be more like uh volatile or prefer in the paper phase.
+[1:47-2:01] um butane it prefers going to the liquid because it's less volatile and water which is just something basic in here in a flush vessel.
+[1:56-2:03] Um we're not for we're not making this super complicated.
+[2:01-2:17] We are assuming the perfect separation with water and of course we will have some um uh propane uh products on the top of the flash gas.
+[2:12-2:26] The bottom is all water and here the condensate is where we have our hydrocarbons which is a propane and butane only.
+[2:21-2:29] So this is where all the magic happens in this website.
+[2:24-2:38] So we will explain later about all the stages pressures and condition that this uhation tower is going.
+[2:31-2:43] Again [snorts] we have one feed and we have uh four outs.
+[2:38-2:45] That's the flush gas out which is mainly propane.
+[2:40-2:52] The water outlet which is just outlet I mean just the just the water.
+[2:45-3:05] Uh we have the overhead which is again going to be propane rich because um again propane is highly uh volatile and the bottoms is going to be mostly butane rich.
+[2:59-3:05] Okay.
+[3:03-3:09] All right.
+[3:03-3:24] So this is like some kind of example of the inputs of the website uh on the website in in uh in a few slides we will show how you can put your values instead of like if you don't have your perfect [snorts] computer for using cam cut or if you just don't know how to use it.
+[3:20-3:34] We designed this to make this super easy for students so they can only put the values like we have a fit rate of 100 moles.
+[3:27-3:38] uh we can like put like what is a percentage of each uh component from the overall feed.
+[3:34-3:40] We can put different conditions.
+[3:36-3:43] We can put the flash at 25 degrees.
+[3:38-3:46] You can uh change the pressure.
+[3:40-3:51] You can change the stages which is like uh stages means means better in in most cases.
+[3:49-3:55] And then when you run this it will give you some kind of feedback.
+[3:51-4:05] Hey, you can change this to get that uh you can upgrade this and then you will get just the results with couple clicks.
+[3:58-4:10] Um and again when you run this it will change the composition of every single stream.
+[4:07-4:25] You will get information from the from [snorts] the condensate from the top of the flash bottom of the flash uh and then the overhead of a dissolation tower and the bottoms recover impurity.
+[4:20-4:36] Um they also give you in some section of the on the website if you get a 95% recovery 100% uh recovery but some sometimes 100% recovery doesn't mean like we are doing a great job.
+[4:32-4:50] So the website will also give you feedback on that which we'll show later and then um yeah the pressure changes depend on the on the information you provide first.
+[4:45-4:50] So it was a lot.
+[4:45-4:56] So um for here we're going to talk about the portion where we are uh going to be discussing the website that we made.
+[4:52-5:01] So if you scan this QR code you could uh uh interact with our website.
+[4:56-5:14] So uh just the basics we're going to use like for this example right here where we got uh our beta uh we use our uh for our case uh 25 Celsius for our flash with six bar for pressure.
+[5:11-5:26] And in this case we got 41.2% 2% hydrocarbons of K vapor when we use our rash rice uh equation.
+[5:17-5:33] So for here uh we could run for a live sample um to a website going to the website.
+[5:26-5:35] So we made this pretty easy to use.
+[5:29-5:40] So over here we can see the different percentages for our propane or butane and water.
+[5:35-5:45] So all that uh is up to 100% opposite for composition.
+[5:40-5:51] You can modify the total molar flow that's coming in from the feed.
+[5:45-5:58] And right here we could adjust our uh temperature and pressure and uh also gives recommendations where it should be around.
+[5:52-6:00] And we have also uh the number for recovery that we're aiming at.
+[5:56-6:08] And we could also modify our equilibrium stages.
+[6:00-6:21] And over here um as you're uh looking along you could uh you could see a uh a live presentation of what happens when you whenever you change the numbers.
+[6:12-6:26] So in this example we're going to be using 60 uh uh 68 Celsius and 13.5 bar for temperature.
+[6:21-6:28] And you could do click right here review and run.
+[6:24-6:42] And a cool thing that we did here is that you could uh get to see before you run the numbers what you should expect and if there's any suggestions for um any numbers you should use instead.
+[6:38-6:51] And here and then whenever you run it you just uh get to view the four different outputs.
+[6:44-7:06] So we get to see the top of our flash visual for our our gas moles for our propane, our uh bottom of flash vessel for our water outlet and uh from our condenser uh from our uh distillation column.
+[7:00-7:12] You can see the top for uh for overhead for propane and our bottoms for our uh hydrocarbons.
+[7:10-7:16] And there's other sections on website that you can check out.
+[7:12-7:22] So we also made this uh pretty easy for students that uh might not be too familiar with using Chemcat for example.
+[7:18-7:50] So you could uh it's pretty interactive and you could start off by here in the learning section and you get to see the different concepts and you could have a quiz as you go along to learn all the different concepts and web economics section to show um and the different capitals and the cost as well our analysis the uh for the different percentages as well the code explanation part.
+[7:44-7:52] Okay guys in this slide Antoan volatility and K value.
+[7:46-8:02] So Antoan going back to thermodynamics uh this equation will help us to give us the saturated pressure uh under the temperature conditions.
+[7:57-8:12] In this case we're using propane and butane volatility again it it tell us how much our product or uh component wants to go to the to the vapor phase.
+[8:08-8:16] [snorts] Okay now we we can talk about the K value.
+[8:14-8:25] The K value is pretty much just like dividing the saturated pressure divided by the absolute pressure.
+[8:18-8:34] Uh also the K value could be just easily be like uh vapor fraction divided by the liquid fraction.
+[8:27-8:38] If you got K bigger than one uh our product wants to be wants to go towards the paper the vapor phase.
+[8:34-8:43] If you have less than one it wants to go to the liquid phase.
+[8:38-8:45] In this case uh just some basic thermodynamics.
+[8:41-8:50] If we increase the absolute pressure, our K value will go down.
+[8:45-8:53] So it means it will prefer to go to the vapor phase.
+[8:50-9:01] Constant pressure increasing temperature uh generally increases a set of pressure.
+[8:55-9:03] So the key value will increase.
+[8:58-9:06] So this guy or whatever we are running here will prefer that vapor phase.
+[9:05-9:19] So now we're going to go over the rashford rice and how it um interacts with this.
+[9:09-9:34] So using rashford rice we can um use both material balances given with our vapor and liquid fractions and our K values as well and that gives us beta and beta is basically a reference to how much the of the hydrocarbon feed actually becomes a vapor.
+[9:32-9:39] So this is a followup to our previous example that we had in earlier slides.
+[9:36-9:54] So we see here that for overall uh propane recovery we're end up getting a 97.6% uh total recovery meanwhile for tower overhead purity was 95.1 but for flesh gas purity it's 79.9%.
+[9:52-10:05] So what we can include here, even though we have a high recovery, it doesn't mean that we're fully uh have a high quality uh uh output for our propane.
+[9:59-10:12] Just because it's 79.9% purity while recovered a lot and a lot of times whenever we have high recoveries like this, it might cost a lot of money.
+[10:08-10:21] So that's worth considering especially in our case where we're considering that everything is uh is in perfect conditions in uh our demo.
+[10:20-10:26] Okay guys, so let's talk now about some graphs.
+[10:21-10:32] Here we're talking about the pressure changes in here on the flush decimal.
+[10:26-10:39] Our orange line is going to be the hydrogen vapor and [snorts] the uh this blue line is going to be the the propane recovery.
+[10:36-10:48] Here on the bottom we are having the uh the flush pressure the uh absolute pressure on the flush vessel.
+[10:41-11:14] We can see as the pressure goes goes up higher over time our uh the vapor fraction goes down because again more pressure less steam lower pressure more steam and here we can see in the recovery of propane uh if we increase that pressure again we have a slightly less recovery at at some point again.
+[11:08-11:21] So be here uh weight move again more pressure the K value decreases so you just go more to the to the bottom to the liquids.
+[11:17-11:28] Okay guys so finally we're going to we're going to talk about the Pensky and the limitations.
+[11:21-11:34] So here the Pensky question will tell us like the minimum number of stages that we will need at some point.
+[11:29-11:52] It pretty much uh uses the product compositions and relative volatility to estimate the minimum number of stages here which is the the formula right there in this example uh the calculation gave us 4.3 we will we have to round up never round down.
+[11:48-11:56] So in this in this case we we will use five five ideal stages.
+[11:52-12:05] We had to define uh through our uh different kinds of prompts that we use either through muse or chatt about what we wanted.
+[12:00-12:13] So we had to illustrate to our AI assistant about what was important and about what we wanted to get displayed.
+[12:10-12:21] Uh AI then uh helped us with proposing a plan uh specifically with Muse and that was the one that I personally worked through.
+[12:16-12:32] um Muse was very good about walking us through about certain uh historic web designs whether that be the index, the diagram, the app, whatever, whatever it may needed.
+[12:29-12:41] We then use CHBT Astra which is a paid for model about how it can improve upon our um initial Muse website.
+[12:35-13:02] news website was very janky and had a lot of holes in it honestly and especially it struggled with the uh makings of graphs and I think that was the main shortcoming of of the muse which uh check was very much able to capitalize on.
+[12:55-13:24] We then implemented this and we referenced both uh what uh Carlos gave us and what we were able to develop ourselves to be able to um fully implement what we needed from Chad Ging whether that be um a code explanation uh a sort of teaching section even the quizzing section which was very helpful for uh students of all kinds.
+[13:18-13:39] So how the uh coding was developed was uh first we would obviously ask chat chat or muse what uh specific prompts we wanted and then uh we would uh dump these into GitHub which would be our HTML our CSS uh front and our JavaScript front.
+[13:35-13:50] And so what the specific JavaScripts worked with was that our app JavaScript mainly worked with our um like our interface our inputs and outputs.
+[13:46-13:54] So what the user would put in there our diagram would work especially with our visuals.
+[13:50-14:10] So that was very important to our graphs and uh like I'm sure you as you guys remember like our free flowing uh portion at the top and then our model worked especially with our different kinds of graph to display our different equilibrium trends.
+[14:09-14:14] So now we're going to go over the comparison of the two AI models.
+[14:10-14:21] And so to start I worked with Muse which was a free service uh powered by Meta.
+[14:14-14:27] Um in my first uh prompt I described I wanted to make a website using GitHub with the repository for the following problem.
+[14:24-14:44] The problem we described before of an inlet flow with a propane butane and water uh going into a flash uh vessel and then to a distillation column um assuming perfect flash and removal of the water.
+[14:39-14:49] And so we wanted to make this like a usable interface uh with inputs and outputs for the user.
+[14:44-14:57] And so now let's uh dive into kind of what that looks like.
+[14:49-15:01] Uh I'll kind of I'll go into my GitHub as well.
+[14:52-15:06] Uh so briefly we'll switch this to desktop and then first we'll look at my GitHub.
+[15:12-15:16] So this is the first one that we ran.
+[15:14-15:18] This is based on Carlos's.
+[15:14-15:24] Obviously, not ours, so not the biggest deal in the world, but this is kind of what we are basing it off of for my first one.
+[15:20-15:28] And then for mine, you can see the similarities when it comes through it.
+[15:27-15:36] Um, if I had to take a guess, Carlos probably used Zone with uh Muse as well.
+[15:33-15:46] And so we see uh the interface while it does work, we have our desired inputs and outputs on our left side that the user can easily interface.
+[15:40-15:53] Um the interface of the actual website is very rough around the edges and it's very uh hard to dissect some of this stuff.
+[15:49-16:01] Uh specifically what we wanted to improve upon was the um actual graphs themselves.
+[15:57-16:06] We thought this is very janky and very hard to read.
+[16:03-16:33] uh we did have our theory which uh I thought was very well very well done in this sense and the Python additionally was very well explained as we had um how the inputs and outputs the Antoine or K values our rashford rice our flash streams our stripping stage and creme with our inputs and outputs and then our self- testing.
+[16:29-16:46] So our actual um uh first website while it got everything that we wanted to get in it um they lacked two two to three main uh very essential components.
+[16:42-16:57] The first being that it was uh hard to recognize and read and the second one being that the graphs were hard to understand and the third one being that there was no economic section.
+[16:54-17:09] So now if we compare that to what Aladdin was able to create with Chachi PT 6.0 Max Astra which is a paid version and it's the highest purity of Chacht.
+[17:07-17:12] Uh it's night and day.
+[17:07-17:36] Uh as we can see here uh it's very easy to read with the big uh points being pointed out to us such as the productivity our propane recovery and then this interface we thought was especially uh very impressive that it was able to create as is a live showing of what each um flow rate was as opposed to something just at the top with mine.
+[17:34-17:41] Additionally, going down, very easy to recognize.
+[17:36-17:44] We have the propane about where it goes.
+[17:38-17:44] It was very well done.
+[17:41-17:52] And we still have our inputs and outputs on the left side.
+[17:44-18:07] As you can see, this was our um this was still uh based and um based and inspired off of the news that we used before, but improved again.
+[18:02-18:12] Uh we like this uh section of the analysis and learning more because it quizzes the user.
+[18:07-18:19] The code explained is much more digestible as opposed to a large block of text.
+[18:12-18:25] Uh the reliability we still have our um our tests that we can measure here.
+[18:22-18:31] And we have an input user for the user in case they're not super familiar with this kind of process.
+[18:27-18:49] They can go here to learn So overall we chose this because of the interface uh superiority of it and the graph the easy graph reading and additionally the uh learning section was much more was much better and then we also include the economic section.
+[18:44-18:57] So going back um news kind of set the foundation for us and chat GPT was able to refine.
+[18:52-19:07] So our three main questions that we wanted to ask was the engineering AI development and the next steps for the engineering recovery wanted to establish the recovery does not equal purity.
+[19:02-19:18] Our pressure reroutes propane based on adjusting the pressure both the flash vessel and the distillation column and material balances must close on all sides.
+[19:13-19:21] For AI development, AI very much accelerated the design.
+[19:17-19:28] This would have taken weeks, months, or years if we're being honest for some of us that aren't very good at coding like myself.
+[19:23-19:36] Uh, but the prompts and the critiques and a general understanding of how the process works is very much uh individual dependent.
+[19:32-19:44] You have to have a background knowledge of the uh of what you're developing to be able to properly execute this.
+[19:38-20:01] Our next step is we wanted to add a vapor liquid liquid equilibrium diagram and a vapor liquid equilibrium diagram and a finite out reflex column modeling very similar to ChemCad be able to uh go tick fort with with u Chemcad and what it's able to do.
+[19:55-20:09] We still find that Chemcad is able to out uh produce and out display what our website is able to handle.
+[20:06-20:16] So our team contributions was uh a very holistic uh team effort.
+[20:12-20:28] Uh for for me I started out with uh the initial planning of it and I um created the first iteration of the website which was very important for our foundational speed aspect.
+[20:23-20:45] Aladdin was able to contribute with uh the final concept using a chachi with using chachi Astra which allowed us to um get our full uh rendering of our website and then Fabricio was able to create the slides and help refine our slides.
+[20:41-20:49] We'll also explain the concept and planning for us at the beginning stages.
+[20:45-21:00] So all three of these um contributions are extremely important to us and if you want to check out the website if you guys are able to from this presentation uh please feel free to uh scan our QR code.
+[20:55-21:00] They hear much.
